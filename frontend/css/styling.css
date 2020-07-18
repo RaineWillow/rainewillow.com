@@ -1,0 +1,187 @@
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #9999AA transparent;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+	width: 12px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: #777799;
+	border-radius: 20px;
+	border: 3px solid transparent;
+}
+
+
+::selection {
+	background: #FF00AA; /* WebKit/Blink Browsers */
+	color: #99BB00;
+}
+::-moz-selection {
+	background: #FF00AA; /* WebKit/Blink Browsers */
+	color: #559900; /* Gecko Browsers */
+}
+
+.side-bar {
+	position: absolute;
+	left: 10%;
+	top: 5%;
+}
+
+.center-area {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 90%;
+	width: 490px;
+	transform: translate(-50%, -50%);
+}
+
+.div-textarea {
+	border: 2px solid #909090;
+	letter-spacing: 1px;
+	z-index: 2;
+	font: 14px/20px "Courier New", Courier, monospace;
+	position: absolute;
+	color: transparent;
+	caret-color: #00FAFF;
+	display:inline-block;
+	background-color: transparent;
+	overflow: auto;
+	resize: none;
+	text-align: center;
+}
+
+html, body {
+	width:  100%;
+	height: 100%;
+	margin: 0;
+}
+
+.backdrop {
+	position: absolute;
+	z-index: 1;
+	border: 2px solid transparent;
+	background-color: #202020;
+	overflow: auto;
+}
+
+mark-reg {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #301010;
+}
+
+mark-const {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #303010;
+}
+
+mark-var {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #103010;
+}
+
+mark-vardec{
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #103010;
+}
+
+mark-comment {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #101010;
+}
+
+mark-label {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #301030;
+}
+
+mark-jmp {
+	border-radius: 3px;
+	padding: 0;
+	font: 20px/28px "Courier New", Courier, monospace;
+	letter-spacing: 1px;
+	color: transparent;
+	background-color: #301030;
+}
+
+.img-with-text {
+    text-align: center;
+}
+
+.ctext-reg {
+	color: #ff1a3c;
+}
+
+.ctext-const {
+	color: #D9ff2f;
+}
+
+.ctext-var {
+	color: #15ffa2;
+}
+
+.ctext-comment {
+	color: #AAAAAA;
+}
+
+.ctext-label {
+	color: #FC46FA;
+}
+
+.ctext-jmp {
+	color: #FC46FA;
+}
+
+.ctext-vardec {
+	color: #800080;
+}
+
+.overlay-z-1 {
+	z-index: 1;
+}
+
+.overlay-z-2 {
+	z-index: 2;
+}
+
+.overlay-z-3 {
+	z-index: 3;
+}
+
+.ptr-evt {
+	pointer-events: none;
+}
+
+.navbar-custom {
+	background-color: #111111;
+}
+body { background: #000000 !important; }
