@@ -26,48 +26,39 @@
 	color: #559900; /* Gecko Browsers */
 }
 
-.side-bar {
-	position: absolute;
-	left: 10%;
-	top: 5%;
-}
-
 .center-area {
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 90%;
-	width: 490px;
-	transform: translate(-50%, -50%);
+}
+
+.centered-items {
+	display: inline-block;
+}
+
+.logo-display {
+	width: auto;
 }
 
 .div-textarea {
-	border: 2px solid #909090;
+	border: 2px solid transparent;
 	letter-spacing: 1px;
-	z-index: 2;
 	font: 14px/20px "Courier New", Courier, monospace;
 	position: absolute;
 	color: transparent;
 	caret-color: #00FAFF;
 	display:inline-block;
-	background-color: transparent;
-	overflow: auto;
+	background-color: #202020;
 	resize: none;
+	min-width: 490px;
+	width: auto;
+	height: auto;
 	text-align: center;
+	margin: 0 auto;
 }
 
 html, body {
 	width:  100%;
 	height: 100%;
 	margin: 0;
-}
-
-.backdrop {
-	position: absolute;
-	z-index: 1;
-	border: 2px solid transparent;
-	background-color: #202020;
-	overflow: auto;
 }
 
 mark-reg {
@@ -175,6 +166,14 @@ mark-jmp {
 
 .overlay-z-3 {
 	z-index: 3;
+}
+
+.overlay-z-4 {
+	z-index: 4;
+}
+
+.overlay-z-5 {
+	z-index: 5;
 }
 
 .ptr-evt {

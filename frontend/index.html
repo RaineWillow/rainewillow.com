@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css/styling.css">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark overlay-z-3">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark overlay-z-4">
 			<a class="navbar-brand" href="#">R/W</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -28,17 +28,26 @@
 
 		<div class="tab-content">
 			<div id="main" class="tab-pane fade show active">
-				<div class="backdrop center-area overlay-z-2 div-textarea">
-					<img src="res/tereziSymbol.png"></img>
+				<div class="overlay-z-3 div-textarea center-area" id="textDiv">
+					<img src="res/tereziSymbol.png" class="logo-display"></img>
 					<p class="img-with-text">
-						<br><span class="ctext-label">My name is Raine Willow Winters and I program stuff. I like some kinds of assembly and I enjoy low level development.
-							I am also capable with graphic design to some extent, and sometimes like doing interesting designs.
+						<br><span class="ctext-label">My name is Raine Willow Winters and my interests include programming, music and art. My projects include a game engine for SFML, various kinds of Discord bots, music of many genres, and  graphic design for games and websites.
+							I also have a personal blog which chronicles whatever misadventures or interesting discoveries I make while I work through my personal projects.
 						</span>
 						<br>
 						<br>
+						<br><span class="ctext-var">-langs-</span>
+						<br><span class="ctext-comment">/C++/</span>
+						<br><span class="ctext-comment">/Python/</span>
+						<br><span class="ctext-comment">/JavaScript/</span>
+						<br><span class="ctext-comment">/FreeBASIC/</span>
+						<br><span class="ctext-comment">/Lua/</span>
+						<br><span class="ctext-comment">/Rust/</span>
 						<br>
-						<br><span class="ctext-var">Links:</span>
-						<br><span class="ctext-label"><a href="https://github.com/RaineWillow">Github</a></span>
+						<br>
+						<br>
+						<br><span class="ctext-var">-links-</span>
+						<br><span class="ctext-label"><a href="https://github.com/RaineWillow">*Github*</a></span>
 					</p>
 				</div>
 			</div>
@@ -52,4 +61,23 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</body>
+
+	<script>
+		function setDivPosition() {
+			var w = document.documentElement.clientWidth;
+
+			let div1 = document.getElementById("textDiv");
+
+			if (div1.clientWidth >= w) {
+				div1.style.left = '0px';
+				console.log("reset");
+			} else {
+				div1.style.left = (w-div1.clientWidth)/2 + 'px';
+
+			}
+		}
+
+		setDivPosition();
+		window.addEventListener("resize", setDivPosition)
+	</script>
 </html>
