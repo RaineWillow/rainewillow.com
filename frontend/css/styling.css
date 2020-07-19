@@ -48,8 +48,7 @@
 	display:inline-block;
 	background-color: #202020;
 	resize: none;
-	min-width: 490px;
-	width: auto;
+	width: 490px;
 	height: auto;
 	text-align: center;
 	margin: 0 auto;

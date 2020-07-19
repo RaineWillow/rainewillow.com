@@ -29,7 +29,7 @@
 		<div class="tab-content">
 			<div id="main" class="tab-pane fade show active">
 				<div class="overlay-z-3 div-textarea center-area" id="textDiv">
-					<img src="res/tereziSymbol.png" class="logo-display"></img>
+					<img src="res/tereziSymbol.png" class="logo-display" id="logoImg"></img>
 					<p class="img-with-text">
 						<br><span class="ctext-label">My name is Raine Willow Winters and my interests include programming, music and art. My projects include a game engine for SFML, various kinds of Discord bots, music of many genres, and  graphic design for games and websites.
 							I also have a personal blog which chronicles whatever misadventures or interesting discoveries I make while I work through my personal projects.
@@ -47,7 +47,7 @@
 						<br>
 						<br>
 						<br><span class="ctext-var">-links-</span>
-						<br><span class="ctext-label"><a href="https://github.com/RaineWillow">*Github*</a></span>
+						<br><a href="https://github.com/RaineWillow">*Github*</a> <span class="ctext-comment"> | </span><a href="https://example.com">*YouTube*</a>
 					</p>
 				</div>
 			</div>
@@ -70,13 +70,30 @@
 
 			if (div1.clientWidth >= w) {
 				div1.style.left = '0px';
-				console.log("reset");
 			} else {
 				div1.style.left = (w-div1.clientWidth)/2 + 'px';
 
 			}
 		}
 
+		function setWidthOfPage() {
+			var w = document.documentElement.clientWidth;
+
+			let div1 = document.getElementById("textDiv");
+			let img1 = document.getElementById("logoImg");
+
+			console.log(w);
+			console.log(div1.clientWidth);
+
+			if (div1.clientWidth >= w) {
+				console.log("should be working!");
+				div1.style.width = w-20 + 'px';
+				img1.style.width = w-20 + 'px';
+			}
+		}
+
+
+		setWidthOfPage();
 		setDivPosition();
 		window.addEventListener("resize", setDivPosition)
 	</script>
