@@ -3,42 +3,9 @@ class BackgroundCanvas {
 		this.canvas = document.getElementById(id);
 		let navbar = document.getElementById("mainNavBar");
 
-		this.fragShader = `
-		precision highp float;
-		varying vec4 color;
-		uniform vec2 iResolution;
-		uniform float iTime;
+		this.fragShader = Back_Frag_Shader;
 
-		#define t iTime
-		#define r iResolution.xy
-
-		void main(){
-			vec3 c;
-			float l,z=t;
-			for(int i=0;i<3;i++) {
-				vec2 uv,p=gl_FragCoord.xy/r;
-				uv=p;
-				p-=.5;
-				p.x*=r.x/r.y;
-				z+=.07;
-				l=length(p);
-				uv+=p/l*(sin(z)+1.)*abs(sin(l*9.-z*2.));
-				c[i]=(.01/length(abs(mod(uv,1.)-.5)))/5.0;
-			}
-			gl_FragColor=vec4(c/l,t);
-		}`;
-
-		this.vertexShader = `
-		attribute vec2 position;
-		attribute vec4 vColor;
-
-		varying highp vec4 color;
-
-		void main() {
-			gl_Position = vec4(position, 0.0, 1.0);
-			color = vColor;
-		}
-		  `;
+		this.vertexShader = Back_Vert_Shader;
 
 		this.canvas.width = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth,
 			document.body.offsetWidth, document.documentElement.offsetWidth,
@@ -118,7 +85,6 @@ class BackgroundCanvas {
 			const stride = 0;
 			const offset = 0;
 			this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.colBuffer);
-			this.gl.bufferData(this.gl.ARRAY_BUFFER, this.colors, this.gl.STATIC_DRAW);
 			this.gl.vertexAttribPointer(this.shaderProg.colorPos, numComponents, type, normalize, stride, offset);
 			this.gl.enableVertexAttribArray(this.shaderProg.colorPos);
 		}
@@ -129,7 +95,6 @@ class BackgroundCanvas {
 	}
 
 	handleResize(height) {
-
 		this.canvas.width = Math.max(document.body.clientWidth, document.documentElement.clientWidth);
 
 		this.canvas.height = height;

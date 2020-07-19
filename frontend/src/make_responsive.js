@@ -15,6 +15,7 @@ function onResize() {
 
 
 function orientationChange() {
+	let navbar = document.getElementById("mainNavBar");
 	var w = screen.width;
 
 	let div1 = document.getElementById("textDiv");
@@ -25,6 +26,8 @@ function orientationChange() {
 		div1.style.width = w-20 + 'px';
 		img1.style.width = w-20 + 'px';
 	}
+
+	homeCanvas.handleResize(Math.max(document.body.clientHeight-navbar.clientHeight, document.documentElement.clientHeight-navbar.clientHeight, div1.clientHeight));
 }
 
 function setWidthOfPage() {
