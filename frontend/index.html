@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css/styling.css">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark overlay-z-4">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark overlay-z-5" id="mainNavBar">
 			<a class="navbar-brand" href="#">R/W</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -28,7 +28,8 @@
 
 		<div class="tab-content">
 			<div id="main" class="tab-pane fade show active">
-				<div class="overlay-z-3 div-textarea center-area" id="textDiv">
+				<canvas class="back-display overlay-z-1" id="backDisplay"></canvas>
+				<div class="overlay-z-3 div-backdrop center-area" id="textDiv">
 					<img src="res/tereziSymbol.png" class="logo-display" id="logoImg"></img>
 					<p class="img-with-text">
 						<br><span class="ctext-label">My name is Raine Willow Winters and my interests include programming, music and art. My projects include a game engine for SFML, various kinds of Discord bots, music of many genres, and  graphic design for games and websites.
@@ -61,40 +62,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</body>
-
-	<script>
-		function setDivPosition() {
-			var w = document.documentElement.clientWidth;
-
-			let div1 = document.getElementById("textDiv");
-
-			if (div1.clientWidth >= w) {
-				div1.style.left = '0px';
-			} else {
-				div1.style.left = (w-div1.clientWidth)/2 + 'px';
-
-			}
-		}
-
-		function setWidthOfPage() {
-			var w = document.documentElement.clientWidth;
-
-			let div1 = document.getElementById("textDiv");
-			let img1 = document.getElementById("logoImg");
-
-			console.log(w);
-			console.log(div1.clientWidth);
-
-			if (div1.clientWidth >= w) {
-				console.log("should be working!");
-				div1.style.width = w-20 + 'px';
-				img1.style.width = w-20 + 'px';
-			}
-		}
-
-
-		setWidthOfPage();
-		setDivPosition();
-		window.addEventListener("resize", setDivPosition)
-	</script>
+	<script type="text/javascript" src="src/background.js"></script>
+	<script type="text/javascript" src="src/make_responsive.js"></script>
 </html>
