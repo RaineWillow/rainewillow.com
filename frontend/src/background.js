@@ -18,6 +18,8 @@ class BackgroundCanvas {
 		this.gl = this.canvas.getContext("webgl");
 		this.clear();
 
+		window.addEventListener('mousemove', this.onMouseMove.bind(this), false);
+
 		this.shaderProg = this.initShaderProgram(this.gl, this.fragShader, this.vertexShader);
 
 		this.vertices = new Float32Array([
@@ -47,9 +49,11 @@ class BackgroundCanvas {
 		this.shaderProg.colorPos = this.gl.getAttribLocation(this.shaderProg, 'vColor');
 		this.shaderProg.vertPos = this.gl.getAttribLocation(this.shaderProg, 'position');
 
-		this.shaderProg.resPos = this.gl.getUniformLocation(this.shaderProg, 'iResolution');
+		this.shaderProg.resPos = this.gl.getUniformLocation(this.shaderProg, 'u_resolution');
 
-		this.shaderProg.timePos = this.gl.getUniformLocation(this.shaderProg, 'iTime');
+		this.shaderProg.timePos = this.gl.getUniformLocation(this.shaderProg, 'u_time');
+
+		this.shaderProg.mousePos = this.gl.getUniformLocation(this.shaderProg, 'u_mouse')
 
 		requestAnimationFrame(this.drawScene.bind(this));
 
@@ -64,6 +68,7 @@ class BackgroundCanvas {
 		now *= 0.001;
 		this.gl.uniform1f(this.shaderProg.timePos, now);
 		this.gl.uniform2fv(this.shaderProg.resPos, [this.canvas.width, this.canvas.height]);
+		this.gl.uniform2fv(this.shaderProg.mousePos, [global_MTX, global_MTY]);
 
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
 
@@ -74,6 +79,7 @@ class BackgroundCanvas {
 			const stride = 0;
 			const offset = 0;
 			this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.posBuffer);
+			this.gl.bufferData(this.gl.ARRAY_BUFFER, this.vertices, this.gl.STATIC_DRAW);
 			this.gl.vertexAttribPointer(this.shaderProg.vertPos, numComponents, type, normalize, stride, offset);
 			this.gl.enableVertexAttribArray(this.shaderProg.vertPos);
 		}
@@ -85,6 +91,7 @@ class BackgroundCanvas {
 			const stride = 0;
 			const offset = 0;
 			this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.colBuffer);
+			this.gl.bufferData(this.gl.ARRAY_BUFFER, this.colors, this.gl.STATIC_DRAW);
 			this.gl.vertexAttribPointer(this.shaderProg.colorPos, numComponents, type, normalize, stride, offset);
 			this.gl.enableVertexAttribArray(this.shaderProg.colorPos);
 		}
@@ -95,9 +102,11 @@ class BackgroundCanvas {
 	}
 
 	handleResize(height) {
-		this.canvas.width = Math.max(document.body.clientWidth, document.documentElement.clientWidth);
+		this.canvas.width = document.body.clientWidth;
 
 		this.canvas.height = height;
+
+		this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
 
 		this.clear();
 	}
@@ -127,6 +136,15 @@ class BackgroundCanvas {
 	  }
 
 	  return shaderProgram;
+	}
+
+	onMouseMove(evt) {
+		var mousePos = getMousePos(this.canvas, evt);
+
+		if (mousePos.x >= 0 && mousePos.y >= 0) {
+			global_MTX = normalize(mousePos.x, 0, this.canvas.width);
+			global_MTY = normalize(mousePos.y, this.canvas.height, 0);
+		}
 	}
 
 	loadShader(gl, type, source) {

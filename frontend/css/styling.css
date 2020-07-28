@@ -26,6 +26,14 @@
 	color: #559900; /* Gecko Browsers */
 }
 
+
+.tab-content > .tab-pane:not(.active),
+.pill-content > .pill-pane:not(.active) {
+    display: block !important;
+    height: 0 !important;
+    overflow-y: hidden !important;
+}
+
 .center-area {
 	position: absolute;
 }
@@ -51,7 +59,24 @@
 .div-backdrop {
 	border: 2px solid transparent;
 	letter-spacing: 1px;
-	font: 14px/20px "Courier New", Courier, monospace;
+	font: 16px/22px "Courier New", Courier, monospace;
+	position: absolute;
+	color: transparent;
+	caret-color: #00FAFF;
+	display:inline-block;
+	opacity: 1.0;
+	background-color: transparent;
+	resize: none;
+	width: 490px;
+	height: auto;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.blog-backdrop {
+	border: 2px solid transparent;
+	letter-spacing: 1px;
+	font: 16px/22px "Courier New", Courier, monospace;
 	position: absolute;
 	color: transparent;
 	caret-color: #00FAFF;
@@ -63,6 +88,13 @@
 	height: auto;
 	text-align: center;
 	margin: 0 auto;
+}
+
+.blog-prev {
+	border: 2px solid #404040;
+	letter-spacing: 1px;
+	font: 16px/22px "Courier New", Courier, monospace;
+	display: inline-block;
 }
 
 html, body {

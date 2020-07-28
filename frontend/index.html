@@ -53,7 +53,11 @@
 				</div>
 			</div>
 			<div id="blog" class="tab-pane fade">
-				<span class="ctext-reg">Not yet implemented!</span>
+				<div class="overlay-z-3 blog-backdrop center-area" id="blogDiv">
+					<p class="img-with-text">
+						<mark-reg><span class="ctext-reg">Not yet implemented!</span></mark-reg>
+					</p>
+				</div>
 			</div>
 		</div>
 		<!-- Optional JavaScript -->
@@ -64,6 +68,22 @@
 	</body>
 	<script id="frag" type="text/javascript" src="src/frag_shader.js"></script>
 	<script id="vert" type="text/javascript" src="src/vert_shader.js"></script>
+	<script type="text/javascript">
+	function normalize(val, min, max) {
+		return (val - min) / (max - min);
+	}
+
+	function getMousePos(canvas, evt) {
+		var rect = canvas.getBoundingClientRect();
+		return {
+			x: evt.clientX - rect.left,
+			y: evt.clientY - rect.top
+		};
+	}
+
+	let global_MTX = 0.0;
+	let global_MTY = 0.0;
+	</script>
 	<script type="text/javascript" src="src/background.js"></script>
 	<script type="text/javascript" src="src/make_responsive.js"></script>
 </html>
