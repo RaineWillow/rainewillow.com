@@ -6,11 +6,11 @@ class BlogDisp {
 	}
 
 	getHTML() {
-		return '<div class = "blog-prev" onclick="handleBlogButton(this.id)"'
+		return '<br><br><div class = "blog-prev" onclick="handleBlogButton(this.id)"'
 		+'onmouseover="handleBlogHover(this.id)"'
-		+'onmouseout="handleBlogLeave"'
+		+'onmouseout="handleBlogLeave(this.id)"'
 		+'id='+this.id
-		+'><mark-reg><span class = ".ctext-reg">' + this.title + '</span></mark-reg></div>';
+		+'><span class="ctext-reg">' + this.title + '</span></div>';
 	}
 }
 
@@ -18,7 +18,15 @@ class BlogHandler {
 	constructor() {
 		this.blogs = [];
 		this.mode = 0;
-		this.container = document.getElementById("blogDiv");
+		this.container = document.getElementById("blogStuff");
+		for (let i = 0; i < 24; i++) {
+			let new_post = new BlogDisp("Lorem Ipsum", "stuff", "blPrev" + i);
+			this.blogs.push(new_post);
+		}
+
+		for (let i = 0; i < this.blogs.length; i++) {
+			this.container.innerHTML += this.blogs[i].getHTML();
+		}
 	}
 }
 
@@ -35,3 +43,5 @@ function handleBlogLeave(clickedID) {
 	post = document.getElementById(clickedID);
 	post.style.border = '2px solid #404040';
 }
+
+let blogHandle = null;

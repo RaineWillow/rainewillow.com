@@ -15,11 +15,7 @@ function onResize() {
 		div2.style.left = '0px';
 	} else {
 		div2.style.left = (w-div1.clientWidth)/2 + 'px';
-		console.log(div2.style.left);
-		console.log(div1.getBoundingClientRect());
-		console.log(w);
 	}
-
 
 	homeCanvas.handleResize(Math.max(document.body.clientHeight-navbar.clientHeight, document.documentElement.clientHeight-navbar.clientHeight, div1.clientHeight));
 }
@@ -41,7 +37,6 @@ function orientationChange() {
 
 
 	if (div2.clientWidth >= w) {
-		console.log("working!");
 		div2.style.width = w-20 + 'px';
 	}
 
@@ -62,15 +57,30 @@ function setWidthOfPage() {
 
 	if (div2.clientWidth >= w) {
 		div2.style.width = w-20 + 'px';
+		div2.style.left = (w-div1.clientWidth)/2 + 'px';
 	}
+}
+
+function setOverflowMain() {
+	let div1 = document.getElementById("textDiv");
+	var h = document.body.clientHeight;
+
+	if (div1.clientHeight <= h) {
+		document.body.style.overflowY = 'hidden';
+	}
+}
+
+function setOverflowBlog() {
+	document.body.style.overflowY = 'scroll';
 }
 
 window.addEventListener("load", function setupWebGL (evt) {
 	"use strict"
-	// Cleaning after ourselves. The event handler removes
-	// itself, because it only needs to run once.
 	window.removeEventListener(evt.type, setupWebGL, false);
 	homeCanvas = new BackgroundCanvas('backDisplay');
+	blogHandle = new BlogHandler();
+
+	setOverflowMain();
 
 	setWidthOfPage();
 	onResize();

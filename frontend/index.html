@@ -7,6 +7,7 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/styling.css">
+		<title>Raine Willow's personal site</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark overlay-z-5" id="mainNavBar">
@@ -17,10 +18,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#main">Home</a>
+						<a class="nav-link" data-toggle="tab" href="#main" onclick="setOverflowMain()">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#blog">Blog</a>
+						<a class="nav-link" data-toggle="tab" href="#blog" onclick="setOverflowBlog()">Blog</a>
 					</li>
 				</ul>
 			</div>
@@ -28,36 +29,36 @@
 
 		<div class="tab-content">
 			<div id="main" class="tab-pane fade show active">
-				<canvas class="back-display overlay-z-1" id="backDisplay"></canvas>
-				<div class="overlay-z-3 div-backdrop center-area" id="textDiv">
-					<img src="res/tereziSymbol.png" class="logo-display" id="logoImg"></img>
-					<p class="img-with-text">
-						<br><span class="ctext-label">My name is Raine Willow Winters and my interests include programming, music and art. My projects include a game engine for SFML, various kinds of Discord bots, music of many genres, and  graphic design for games and websites.
-							I also have a personal blog which chronicles whatever misadventures or interesting discoveries I make while I work through my personal projects.
-						</span>
-						<br>
-						<br>
-						<br><span class="ctext-var">-langs-</span>
-						<br><span class="ctext-comment">/C++/</span>
-						<br><span class="ctext-comment">/Python/</span>
-						<br><span class="ctext-comment">/JavaScript/</span>
-						<br><span class="ctext-comment">/FreeBASIC/</span>
-						<br><span class="ctext-comment">/Lua/</span>
-						<br><span class="ctext-comment">/Rust/</span>
-						<br>
-						<br>
-						<br>
-						<br><span class="ctext-var">-links-</span>
-						<br><a href="https://github.com/RaineWillow">*Github*</a> <span class="ctext-comment"> | </span><a href="https://example.com">*YouTube*</a>
-					</p>
-				</div>
+					<canvas class="back-display overlay-z-1" id="backDisplay"></canvas>
+					<div class="overlay-z-3 div-backdrop center-area" id="textDiv">
+						<img src="res/tereziSymbol.png" class="logo-display" id="logoImg"></img>
+						<p class="img-with-text">
+							<br><span class="ctext-label">My name is Raine Willow Winters and my interests include programming, music and art. My projects include a game engine for SFML, various kinds of Discord bots, music of many genres, and  graphic design for games and websites.
+								I also have a personal blog which chronicles whatever misadventures or interesting discoveries I make while I work through my personal projects.
+							</span>
+							<br>
+							<br>
+							<br><span class="ctext-var">-langs-</span>
+							<br><span class="ctext-comment">/C++/</span>
+							<br><span class="ctext-comment">/Python/</span>
+							<br><span class="ctext-comment">/JavaScript/</span>
+							<br><span class="ctext-comment">/FreeBASIC/</span>
+							<br><span class="ctext-comment">/Lua/</span>
+							<br><span class="ctext-comment">/Rust/</span>
+							<br>
+							<br>
+							<br>
+							<br><span class="ctext-var">-links-</span>
+							<br><a href="https://github.com/RaineWillow">*Github*</a> <span class="ctext-comment"> | </span><a href="https://example.com">*YouTube*</a>
+						</p>
+					</div>
 			</div>
 			<div id="blog" class="tab-pane fade">
-				<div class="overlay-z-3 blog-backdrop center-area" id="blogDiv">
-					<p class="img-with-text">
-						<mark-reg><span class="ctext-reg">Not yet implemented!</span></mark-reg>
-					</p>
-				</div>
+						<div class="overlay-z-4 blog-main" id="blogDiv">
+							<p class="img-with-text" id="blogStuff">
+								<mark-reg><span class="ctext-reg">Not yet implemented!</span></mark-reg>
+							</p>
+						</div>
 			</div>
 		</div>
 		<!-- Optional JavaScript -->
@@ -84,6 +85,7 @@
 	let global_MTX = 0.0;
 	let global_MTY = 0.0;
 	</script>
+	<script type="text/javascript" src="src/blog_handler.js"></script>
 	<script type="text/javascript" src="src/background.js"></script>
 	<script type="text/javascript" src="src/make_responsive.js"></script>
 </html>

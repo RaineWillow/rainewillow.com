@@ -31,7 +31,7 @@
 .pill-content > .pill-pane:not(.active) {
     display: block !important;
     height: 0 !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
 }
 
 .center-area {
@@ -49,6 +49,14 @@
 .img-with-text {
     text-align: center;
     padding: 10px;
+}
+
+.page-container {
+	width: auto;
+	height: auto;
+	overflow: scroll;
+	display: inline-block;
+	border: 2px solid #FF0000;
 }
 
 .back-display {
@@ -74,12 +82,28 @@
 }
 
 .blog-backdrop {
+	border: 0px solid transparent;
+	letter-spacing: 1px;
+	font: 16px/22px "Courier New", Courier, monospace;
+	color: #909090;
+	caret-color: #00FAFF;
+	display:inline-block;
+	opacity: 1.0;
+	background-color: #000000;
+	resize: none;
+	height:98%;
+	width:100%;
+	overflow: scroll;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.blog-main {
 	border: 2px solid transparent;
 	letter-spacing: 1px;
 	font: 16px/22px "Courier New", Courier, monospace;
 	position: absolute;
-	color: transparent;
-	caret-color: #00FAFF;
+	color: #909090;
 	display:inline-block;
 	opacity: 1.0;
 	background-color: #202020;
@@ -94,6 +118,7 @@
 	border: 2px solid #404040;
 	letter-spacing: 1px;
 	font: 16px/22px "Courier New", Courier, monospace;
+	color: #F0F0F0;
 	display: inline-block;
 }
 
@@ -222,4 +247,6 @@ mark-jmp {
 .navbar-custom {
 	background-color: #111111;
 }
-body { background: #000000 !important; }
+body {
+	background: #000000 !important;
+}
