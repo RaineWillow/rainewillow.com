@@ -249,4 +249,5 @@ mark-jmp {
 }
 body {
 	background: #000000 !important;
+	overflow-x: hidden;
 }

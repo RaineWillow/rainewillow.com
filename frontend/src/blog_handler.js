@@ -24,11 +24,26 @@ class BlogHandler {
 			this.blogs.push(new_post);
 		}
 
+		this.setBlogPre()
+	}
+
+	setBlogPre() {
+		this.mode = 0;
 		for (let i = 0; i < this.blogs.length; i++) {
 			this.container.innerHTML += this.blogs[i].getHTML();
 		}
 	}
+
+	setBlogPost() {
+		this.mode = 1;
+	}
+
+	blogSwitch() {
+
+	}
 }
+
+let blogHandle = null;
 
 function handleBlogButton(clickedID) {
 	post = document.getElementById(clickedID);
@@ -43,5 +58,3 @@ function handleBlogLeave(clickedID) {
 	post = document.getElementById(clickedID);
 	post.style.border = '2px solid #404040';
 }
-
-let blogHandle = null;
